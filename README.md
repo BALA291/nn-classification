@@ -14,16 +14,34 @@ You are required to help the manager to predict the right group of the new custo
 
 ## Neural Network Model
 
-Include the neural network model diagram.
+![model](https://github.com/BALA291/nn-classification/assets/120717501/0f3d924b-bb23-41cf-8d15-5044c503798f)
+
 
 ## DESIGN STEPS
 
 ### STEP 1:
-Write your own steps
+Import the necessary packages & modules
 
 ### STEP 2:
+Load and clean the customer data, handling missing values.
 
 ### STEP 3:
+Use OrdinalEncoder and LabelEncoder to encode categorical features.
+
+### STEP 4:
+Generate a correlation matrix and heatmap, along with a pair plot for data exploration.
+
+### STEP 5:
+Apply MinMax scaling to the 'Age' column in the dataset.
+
+### STEP 6:
+Create a neural network model using TensorFlow/Keras with specified layers and activation functions.
+
+### STEP 7:
+Train the model on the scaled training data with early stopping for preventing overfitting.
+
+### STEP 8:
+Evaluate the trained model on the test data, save the model, and store necessary data for future predictions.
 
 
 ## PROGRAM

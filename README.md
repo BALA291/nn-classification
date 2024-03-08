@@ -49,6 +49,7 @@ Evaluate the trained model on the test data, save the model, and store necessary
 ### Name: BALAMURUGAN B
 ### Register Number: 212222230016
 ```python
+# IMPORT REQUIRED LIBRARIES
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import Sequential
@@ -67,17 +68,22 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import classification_report,confusion_matrix
 import numpy as np
 import matplotlib.pylab as plt
+
+# READ THE DATASET USING PANDAS
 customer_df=pd.read_csv("/content/customers.csv")
 customer_df.head(10)
 customer_df.columns
 customer_df.dtypes
 customer_df.shape
 customer_df.isnull().sum()
+# CLEANING THE DATASET
 customer_cleaned=customer_df.dropna(axis=0)
 customer_cleaned.isnull().sum()
 customer_cleaned.shape
 customer_cleaned.drop(columns=['ID'], inplace=True)
 customer_cleaned.drop(columns=['Var_1'], inplace=True)
+
+# CHECK UNIQUE VALUES
 customer_cleaned['Gender'].unique()
 customer_cleaned['Ever_Married'].unique()
 customer_cleaned['Age'].unique()
@@ -92,6 +98,7 @@ categories_list=[['Male', 'Female'],
             'Homemaker', 'Entertainment', 'Marketing', 'Executive'],
            ['Low', 'Average', 'High']
            ]
+# ENCODING
 enc = OrdinalEncoder(categories=categories_list)
 customers_1 = customer_cleaned.copy()
 customers_1[['Gender',
@@ -116,15 +123,20 @@ y1.shape
 y[0]
 y1[0]
 X.shape
-X_train,X_test,y_train,y_test=train_test_split(X,y1,test_size=0.33,random_state=50)
 
+# SPLIT THE DATADET INTO TESTING ANG TRAINING DATA
+X_train,X_test,y_train,y_test=train_test_split(X,y1,test_size=0.33,random_state=50)
 X_train.shape
+
+# PREPROCESSING DATASET
 scaler_age = MinMaxScaler()
 scaler_age.fit(X_train[:,2].reshape(-1,1))
 X_train_scaled = np.copy(X_train)
 X_test_scaled = np.copy(X_test)
 X_train_scaled[:,2] = scaler_age.transform(X_train[:,2].reshape(-1,1)).reshape(-1)
 X_test_scaled[:,2] = scaler_age.transform(X_test[:,2].reshape(-1,1)).reshape(-1)
+
+# CREATE THE MODEL
 ai_brain = Sequential([
    Dense(4,input_shape=(8,)),
   Dense(8,activation='relu'),
@@ -145,18 +157,18 @@ y_test_truevalue = np.argmax(y_test,axis=1)
 y_test_truevalue.shape
 print(confusion_matrix(y_test_truevalue,x_test_predictions))
 print(classification_report(y_test_truevalue,x_test_predictions))
+
+# PREDICTION FOR SINGLE OUTPUT
 x_single_prediction = np.argmax(ai_brain.predict(X_test_scaled[1:2,:]), axis=1)
 print(x_single_prediction)
 print(le.inverse_transform(x_single_prediction))
 
-
-
-
 ```
+## OUTPUT
+
 ## Dataset Information
 ![dataset](https://github.com/BALA291/nn-classification/assets/120717501/cf7268e0-202d-4199-819b-6eeee815def6)
 
-## OUTPUT
 ### Training Loss, Validation Loss Vs Iteration Plot
 ![graph](https://github.com/BALA291/nn-classification/assets/120717501/45f39883-0325-4531-8be7-32ef418605cc)
 

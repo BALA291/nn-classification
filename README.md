@@ -153,27 +153,23 @@ print(le.inverse_transform(x_single_prediction))
 
 
 ```
-
 ## Dataset Information
-
-Include screenshot of the dataset
+![dataset](https://github.com/BALA291/nn-classification/assets/120717501/cf7268e0-202d-4199-819b-6eeee815def6)
 
 ## OUTPUT
 ### Training Loss, Validation Loss Vs Iteration Plot
-Include your plot here
+![graph](https://github.com/BALA291/nn-classification/assets/120717501/45f39883-0325-4531-8be7-32ef418605cc)
+
 
 ### Classification Report
-
-Include Classification Report here
+![classification](https://github.com/BALA291/nn-classification/assets/120717501/decfa0f6-abb7-4580-9e8b-82e449090a1c)
 
 ### Confusion Matrix
-
-Include confusion matrix here
+![confusion](https://github.com/BALA291/nn-classification/assets/120717501/80039712-4dfd-44c4-b2a7-b46b7bf2f92d)
 
 
 ### New Sample Data Prediction
-
-Include your sample input and output here
+![out](https://github.com/BALA291/nn-classification/assets/120717501/c9cd795d-1f90-443b-807b-a5b12d3f7d8a)
 
 ## RESULT
-Include your result here
+Thus a neural network classification model is developed for the given dataset.
